@@ -1,0 +1,76 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.todolist"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:5:5-23:19
+12        android:allowBackup="true"
+12-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.7.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\cfe999c88a756c3c94ea9b8b2193937b\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/Theme.ToDoList" >
+20-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:11:9-46
+21        <activity
+21-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:12:9-20:20
+22            android:name="com.example.todolist.ui.MainActivity"
+22-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:13:13-44
+23            android:exported="true" >
+23-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:14:13-36
+24            <intent-filter>
+24-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:15:13-19:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:16:17-69
+25-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:16:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:18:17-77
+27-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:18:27-74
+28            </intent-filter>
+29        </activity>
+30        <activity android:name="com.example.todolist.ui.AddTaskActivity" >
+30-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:21:9-22:20
+30-->C:\Users\Rahul Nanayakkara\Downloads\To-do-List-main\Doit\app\src\main\AndroidManifest.xml:21:19-53
+31        </activity>
+32
+33        <provider
+33-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+34            android:name="androidx.startup.InitializationProvider"
+34-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+35            android:authorities="com.example.todolist.androidx-startup"
+35-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+36            android:exported="false" >
+36-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+37            <meta-data
+37-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+38                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+38-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+39                android:value="androidx.startup" />
+39-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c28a77ef9f21cb449c9f08ea93917998\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+40            <meta-data
+40-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c822df3d088834c9557035772f0a3324\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+41                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+41-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c822df3d088834c9557035772f0a3324\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+42                android:value="androidx.startup" />
+42-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rahul Nanayakkara\.gradle\caches\transforms-3\c822df3d088834c9557035772f0a3324\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+43        </provider>
+44    </application>
+45
+46</manifest>
