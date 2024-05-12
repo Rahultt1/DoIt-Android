@@ -12,10 +12,42 @@ import com.example.todolist.model.Task
 
 class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCallback()) {
 
+    // Lambda functions to handle edit and delete actions
     var listenerEdit: (Task) -> Unit = {}
     var listenerDelete: (Task) -> Unit = {}
 
+    // ViewHolder Class
+    inner class TaskViewHolder(
+        private val binding: ItemTaskBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(item: Task) {
+            binding.tvTitle.text = item.title
+            binding.tvDate.text = "${item.date} ${item.hour}"
+
+            // More Options Popup Menu
+            binding.ivMore.setOnClickListener {
+                showPopup(item)
+            }
+        }
+
+        private fun showPopup(item: Task) {
+            val ivMore = binding.ivMore
+            val popupMenu = PopupMenu(ivMore.context, ivMore)
+            popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.action_edit -> listenerEdit(item)
+                    R.id.action_delete -> listenerDelete(item)
+                }
+                true // Consume the click event
+            }
+            popupMenu.show()
+        }
+    }
+
+    // RecyclerView Methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemTaskBinding.inflate(inflater, parent, false)
@@ -26,35 +58,14 @@ class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCa
         holder.bind(getItem(position))
     }
 
-    inner class TaskViewHolder(
-        private val binding: ItemTaskBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: Task) {
-            binding.tvTitle.text = item.title
-            binding.tvDate.text = "${item.date} ${item.hour}"
-            binding.ivMore.setOnClickListener {
-                showPopup(item)
-            }
+    // DiffUtil Callback for Efficient Updates
+    class DiffCallback : DiffUtil.ItemCallback<Task>() {
+        override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
+            return oldItem.id == newItem.id
         }
 
-        private fun showPopup(item: Task) {
-            val ivMore = binding.ivMore
-            val popupMenu = PopupMenu(ivMore.context, ivMore)
-            popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.action_edit -> listenerEdit(item)
-                    R.id.action_delete -> listenerDelete(item)
-                }
-                return@setOnMenuItemClickListener true
-            }
-            popupMenu.show()
+        override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
+            return oldItem == newItem
         }
     }
-}
-
-class DiffCallback : DiffUtil.ItemCallback<Task>() {
-    override fun areItemsTheSame(oldItem: Task, newItem: Task) = oldItem == newItem
-    override fun areContentsTheSame(oldItem: Task, newItem: Task) = oldItem.id == newItem.id
 }

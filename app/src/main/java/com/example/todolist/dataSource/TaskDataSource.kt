@@ -1,25 +1,30 @@
 package com.example.todolist.dataSource
 
+import android.content.Context
+import com.example.todolist.database.AppDatabase
+import com.example.todolist.database.TaskDao
 import com.example.todolist.model.Task
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
-object TaskDataSource {
-    private val list = arrayListOf<Task>()
+class TaskDataSource(context: Context) {
+    private val _taskDao = AppDatabase.getDatabase(context).taskDao()
+    // Make taskDao accessible from outside the class
+    val taskDao: TaskDao get() = _taskDao  // Public getter for taskDao
 
-    fun getList() = list.toList()
+    fun getAllTasks(): Flow<List<Task>> = taskDao.getAllTasks()
 
     fun insertTask(task: Task) {
-        if (task.id == 0) {
-            list.add(task.copy(id = list.size + 1))}
-        else {
-            list.remove(task)
-            list.add(task)
+        CoroutineScope(Dispatchers.IO).launch {
+            taskDao.insertTask(task)
         }
     }
 
-    fun findById(taskId: Int) = list.find { it.id == taskId }
-
     fun deleteTask(task: Task) {
-        list.remove(task)
+        CoroutineScope(Dispatchers.IO).launch {
+            taskDao.deleteTask(task)
+        }
     }
-
 }
